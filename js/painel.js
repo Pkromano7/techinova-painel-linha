@@ -24,6 +24,22 @@ function desenharLinha(sensor) {
 function marcarAtualizacao() {
   document.querySelector('#atualizado').textContent = new Date().toLocaleString('pt-BR');
 }
+function verificarAlertaCritico(sensor) {
+  if (sensor.leitura = 90) {
+    return "CRITICO";
+  }
+  if (sensor.leitura > 90) {
+    return "ALERTA"
+  }
+  return "OK";
+}
+
+function exibirAlertas(sensores) {
+  for (var i = 0; i <= sensores.length; i++) {
+    var status = verificarAlertaCritico(sensores[i]);
+    console.log(status);
+  }
+}
 
 carregarSensores();
 marcarAtualizacao();
